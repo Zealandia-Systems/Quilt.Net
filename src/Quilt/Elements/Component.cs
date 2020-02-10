@@ -13,7 +13,7 @@
 
 		[Attribute]
 		public abstract float Height { get; set; }
-		
+
 		protected Component(string prefix, string localName, string namespaceURI, QuiltDocument document) : base(prefix, localName, namespaceURI, document) {
 
 		}

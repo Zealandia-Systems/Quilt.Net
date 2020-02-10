@@ -3,13 +3,13 @@
 	using System.Xml;
 
 	public class QuiltDocument : XmlDocument {
-		private readonly Dictionary<string, Namespace> _namespaces;
+		private readonly Dictionary<string, QuiltNamespace> _namespaces;
 		private QuiltXmlReader _reader;
 
 		internal Stack<QuiltElement> _elementStack = new Stack<QuiltElement>();
 
 		public QuiltDocument() {
-			_namespaces = Namespace.GetNamespaces();
+			_namespaces = QuiltNamespace.GetNamespaces();
 		}
 
 		public override void Load(XmlReader reader) {

@@ -3,7 +3,7 @@ namespace Quilt {
 	using System.Xml;
 	using Quilt.Xml;
 
-	[Element(QuiltNamespace.URI)]
+	[Element(CoreNamespace.URI)]
 	public class Application : QuiltElement {
 		protected Application(string prefix, string localName, string namespaceURI, QuiltDocument document) : base(prefix, localName, namespaceURI, document) {
 		}

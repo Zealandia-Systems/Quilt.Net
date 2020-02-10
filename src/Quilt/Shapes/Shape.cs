@@ -3,7 +3,7 @@
 
 	using Quilt.Xml;
 
-	[Element(QuiltNamespace.URI)]
+	[Element(CoreNamespace.URI)]
 	public abstract class Shape : QuiltElement {
 		[Attribute]
 		public abstract float Left { get; set; }

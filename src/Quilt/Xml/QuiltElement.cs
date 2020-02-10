@@ -1,6 +1,5 @@
 ﻿namespace Quilt.Xml {
 	using System.ComponentModel;
-	using System.IO;
 	using System.Xml;
 
 	public abstract class QuiltElement : XmlElement, INotifyPropertyChanged {

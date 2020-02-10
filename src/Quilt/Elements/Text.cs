@@ -1,7 +1,7 @@
 ﻿namespace Quilt.Elements {
 	using Quilt.Xml;
 
-	[Element(QuiltNamespace.URI)]
+	[Element(CoreNamespace.URI)]
 	public abstract class Text : Component {
 		protected Text(string prefix, string localName, string namespaceURI, QuiltDocument document) : base(prefix, localName, namespaceURI, document) {
 

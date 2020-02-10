@@ -5,13 +5,11 @@
 	using System.Linq.Expressions;
 	using System.Reflection;
 
-	public abstract class Namespace {
-		private const int ELEMENT_LENGTH = 7;
-
+	public abstract class QuiltNamespace {
 		private static readonly Type __stringType = typeof(string);
 		private static readonly Type __quiltDocumentType = typeof(QuiltDocument);
 		private static readonly Type __quiltAttributeType = typeof(Attribute<,>);
-		private static readonly Type __namespaceType = typeof(Namespace);
+		private static readonly Type __namespaceType = typeof(QuiltNamespace);
 		private static readonly Type __elementAttributeType = typeof(ElementAttribute);
 		private static readonly Type __attributeAttributeType = typeof(AttributeAttribute);
 		private static readonly ElementGenerator __generator = new ElementGenerator();
@@ -20,7 +18,7 @@
 
 		public string Uri { get; }
 
-		protected Namespace(string uri) {
+		protected QuiltNamespace(string uri) {
 			Uri = uri;
 		}
 
@@ -90,14 +88,14 @@
 			return Expression.Lambda<Func<string, string, string, QuiltDocument, QuiltAttribute>>(Expression.New(constructor, parameters), parameters).Compile();
 		}
 
-		public static Dictionary<string, Namespace> GetNamespaces() {
+		public static Dictionary<string, QuiltNamespace> GetNamespaces() {
 			var types = __namespaceType.Assembly.GetTypes();
-			var namespaces = new Dictionary<string, Namespace>();
+			var namespaces = new Dictionary<string, QuiltNamespace>();
 
 			// scan over the types once to find all Namespace types
 			foreach (var type in types) {
 				if (__namespaceType.IsAssignableFrom(type) && __namespaceType != type) {
-					var @namespace = (Namespace)Activator.CreateInstance(type, true);
+					var @namespace = (QuiltNamespace)Activator.CreateInstance(type, true);
 
 					namespaces.Add(@namespace.Uri, @namespace);
 				}

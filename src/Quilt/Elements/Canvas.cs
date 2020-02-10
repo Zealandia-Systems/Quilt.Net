@@ -1,11 +1,7 @@
 ﻿namespace Quilt.Elements {
-	using System.Linq;
-	using System.Xml;
-
-	using Quilt.Shapes;
 	using Quilt.Xml;
 
-	[Element(QuiltNamespace.URI)]
+	[Element(CoreNamespace.URI)]
 	public abstract class Canvas : Component {
 		protected Canvas(string prefix, string localName, string namespaceURI, QuiltDocument document) : base(prefix, localName, namespaceURI, document) {
 
